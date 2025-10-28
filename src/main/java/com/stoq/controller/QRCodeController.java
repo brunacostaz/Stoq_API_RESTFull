@@ -26,6 +26,17 @@ public class QRCodeController {
     }
 
     /**
+     * Endpoint para listar todos os QR Codes cadastrados.
+     * URL: GET /api/qrcode
+     */
+    @Operation(summary = "Lista todos os QR Codes cadastrados no sistema.")
+    @GetMapping
+    public ResponseEntity<List<QRCodeResponseDTO>> listarTodos() {
+        List<QRCodeResponseDTO> qrCodes = qrCodeService.listarTodos();
+        return ResponseEntity.ok(qrCodes);
+    }
+
+    /**
      * Endpoint para Enfermeiro gerar o QR Code de uma consulta.
      */
     @Operation(summary = "Gera um novo QR Code PENDENTE para uma consulta específica (Ação do Enfermeiro)") // Adicionado

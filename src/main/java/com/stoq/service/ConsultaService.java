@@ -61,13 +61,6 @@ public class ConsultaService {
         return toResponseDTO(atualizada);
     }
 
-    @Transactional
-    public void deletar(Long id) {
-        if (!repository.existsById(id)) {
-            throw new NoSuchElementException("Consulta não encontrada com ID: " + id);
-        }
-        repository.deleteById(id);
-    }
 
     // =================== MÉTODOS AUXILIARES (MAPPER) ===================
 

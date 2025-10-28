@@ -67,15 +67,4 @@ public class ConsultaController {
         }
     }
 
-    // DELETAR
-    @Operation(summary = "Deletar uma consulta")
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable Long id) {
-        try {
-            service.deletar(id);
-            return ResponseEntity.noContent().build();
-        } catch (NoSuchElementException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-    }
 }

@@ -154,4 +154,14 @@ public class QRCodeService {
 
         return QRCodeMapper.toResponseDTO(qrCode);
     }
+
+    /**
+     * Listar todos os QRCodes cadastrados
+     */
+    @Transactional(readOnly = true)
+    public List<QRCodeResponseDTO> listarTodos() {
+        return qrCodeRepository.findAll().stream()
+                .map(QRCodeMapper::toResponseDTO)
+                .collect(Collectors.toList());
+    }
 }

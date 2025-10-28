@@ -17,14 +17,15 @@ import java.time.LocalDate;
 public class Estoque {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Adicionando a estratégia de geração de ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_ESTOQUE")
     private Long idEstoque;
 
-    @Column(name = "ID_LAB", nullable = false)
+    @Column(name = "LABORATORIO_ID", nullable = false)
     @NotNull(message="ID do laboratório é obrigatório")
     private Long idLab;
 
-    @Column(name = "ID_MATERIAL", nullable = false)
+    @Column(name = "MATERIAL_ID", nullable = false)
     @NotNull(message="ID do material é obrigatório")
     private Long idMaterial;
 
@@ -32,7 +33,7 @@ public class Estoque {
     @NotNull(message = "É obrigatório informar a data")
     private LocalDate dia;
 
-    @Column(name = "QUANTIDADE_ATUAL", nullable = false)
+    @Column(name = "QTDE", nullable = false)
     @NotNull(message = "É obrigatório informar a quantidade atual")
     private BigDecimal quantidadeAtual;
 }
