@@ -2,6 +2,7 @@ package com.stoq.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,14 +38,15 @@ public class Funcionario {
     private String cargo;
 
     @Column(name = "ATIVO", nullable = false)
+    @NotBlank(message="Status 'ativo' é obrigatório") // Adicionado NotBlank aqui, assumindo que ATIVO é sempre S ou N.
     private String ativo;
 
     @Column(name = "DT_CADASTRO", nullable = false)
-    @NotBlank(message="Data do cadastro é obrigatório")
+    @NotNull(message="Data do cadastro é obrigatório") // CORREÇÃO: TROCADO @NotBlank por @NotNull
     private LocalDate dtCadastro;
 
     @Column(name = "LABORATORIO_ID", nullable = false)
-    @NotBlank(message="ID do laboratório do funcionário é obrigatório")
+    @NotNull(message="ID do laboratório do funcionário é obrigatório")
     private Long idLaboratorio;
 
     @Override

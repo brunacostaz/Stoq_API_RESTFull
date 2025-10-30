@@ -18,7 +18,6 @@ public interface PresetMaterialRepository extends JpaRepository<PresetMaterial, 
     @Query("SELECT pm.id.idMaterial FROM PresetMaterial pm WHERE pm.id.idPreset = ?1")
     List<Long> findMaterialIdsByPresetId(Long idPreset);
 
-    // Método para exclusão em massa, mais eficiente que deletar um por um no loop
     @Modifying
     @Transactional
     void deleteByIdIdPreset(Long idPreset);
